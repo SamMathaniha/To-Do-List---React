@@ -1,0 +1,20 @@
+.searchForm {
+    margin-bottom: 20px; /* Add some space below the form */
+    display: flex;
+    justify-content: center;
+
+  }
+  
+  .searchForm label {
+    margin-right: 0%;
+    margin-right: -40px;
+  }
+  
+  .searchForm input {
+    width: 407px;
+    font-size: 25px;
+    padding: 15px; /* Add padding to the input */
+    margin-right: 10px; /* Add spacing between the input and button */
+  }
+  
+

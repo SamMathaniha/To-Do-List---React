@@ -1,0 +1,30 @@
+html, body {
+    height: 100%; /* Ensure the body takes up the full height of the viewport */
+    margin: 0; /* Remove default margin */
+  }
+  
+  body {
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Arrange children vertically */
+  }
+  
+  .MainContent {
+    flex: 1; /* Allow main content to take up remaining space */
+  }
+  
+  .FooterMain {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  
+  .FooterMain h4 {
+    margin: 0; /* Remove default margin */
+    
+  }
+  

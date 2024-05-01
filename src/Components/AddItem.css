@@ -1,0 +1,31 @@
+.addForm {
+    margin-bottom: 20px; /* Add some space below the form */
+    display: flex;
+    justify-content: center;
+
+  }
+  
+  .addForm label {
+    margin-right: 0%;
+    margin-right: -65px;
+  }
+  
+  .addForm input {
+    width: 350px;
+    font-size: 25px;
+    padding: 15px; /* Add padding to the input */
+    margin-right: 10px; /* Add spacing between the input and button */
+  }
+  
+  .addForm button {
+    background-color: #007bff; /* Blue background color */
+    color: #fff; /* White text color */
+    border: none; /* Remove button border */
+    padding: 8px 16px; /* Add padding to the button */
+    cursor: pointer; /* Change cursor to pointer on hover */
+  }
+  
+  .addForm button:hover {
+    background-color: #0056b3; /* Darker blue background color on hover */
+  }
+  

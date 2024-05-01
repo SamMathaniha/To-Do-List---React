@@ -1,0 +1,51 @@
+/* ListAndKey.css */
+
+body {
+  background-color: black;
+}
+
+ul {
+  list-style-type: none; /* Remove default bullet points */
+  padding: 0;
+  max-height: 300px; /* Set a maximum height */
+  overflow-y: auto; /* Enable vertical scroll when content overflows */
+}
+
+/* Define styles for each list item */
+li {
+  background-color: rgba(255, 255, 255, 0.982);
+  display: flex; /* Display items in a row */
+  align-items: center; /* Center items vertically */
+  margin-bottom: 5px; /* Add some space between items */
+  overflow-wrap: break-word; /* Allow words to break if they are too long */
+}
+
+/* Define styles for the checkbox */
+input[type="checkbox"] {
+  margin-right: 30px; /* Add space between checkbox and label */
+  margin-left: 20px;
+  transform: scale(2.5); /* Scale up the size of the checkbox */
+}
+
+/* Define styles for the trash icon */
+.FaTrashAlt {
+  cursor: pointer; /* Change cursor to pointer on hover */
+  margin-left: auto; /* Move the trash icon to the right */
+}
+
+/* Define styles for the task label */
+label {
+  margin-right: auto; /* Push the label to the left */
+}
+
+.Container {
+  font-size: 35px;
+  font-family: rockell;
+  background-color: rgb(191, 207, 253);
+  width: 400px; /* Set width of the container */
+  margin: auto; /* Center the container horizontally */
+  padding: 20px; /* Add some padding */
+  border: 5px solid #ff0000; /* Add a border */
+  border-radius: 5px; /* Add border radius for rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
