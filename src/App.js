@@ -7,25 +7,40 @@ import { useState } from 'react';
 import AddItem from './Components/AddItem';
 import SearchItem from './Components/SearchItem';
 /* import Content from './Components/Content'; */
-
+import { useEffect } from 'react';
 
 
 function App() {
 
+  const API_URL = 'http://localhost:3500/items'
   // Set up state using useState hook to manage the list of items
-  const [items, setItems] = useState(
-    JSON.parse(localStorage.getItem('todo_list'))
+  const [items, setItems] = useState( []
   );
 
   const [newItem, setNewItem] = useState('')
   const[search,setSearch] = useState('')
+
+  useEffect(() => {
+    const fetchItems = async () => {
+      try {
+        const response = await fetch(API_URL);
+        const listItems = await response.json();
+        setItems(listItems);
+      } catch (err) {
+        console.log(err.stack);
+      }
+    };
+  
+    fetchItems(); // Call fetchItems directly
+  }, []);
+  
 
   const addItem =(task) => {
     const id = items.length ? items[items.length - 1].id + 1 : 1;
     const addNewItem = {id, checked:false, task}
     const listItems = [...items, addNewItem]
     setItems(listItems); 
-    localStorage.setItem("todo_list", JSON.stringify(listItems))
+   
   }
 
 
@@ -35,14 +50,14 @@ function App() {
       item.id === id ? { ...item, checked: !item.checked } : item
     );
     setItems(listItems);  // Update state with the modified items array
-    localStorage.setItem("todo_list", JSON.stringify(listItems))
+    
   };
 
   // Function to handle deleting an item from the list
   const handleDelete = (id) => {
     const listItems = items.filter((item) => item.id !== id);  // Filter out the item with the specified id
     setItems(listItems);  // Update state with the filtered items array
-    localStorage.setItem("todo_list", JSON.stringify(listItems))
+    
   };
 
  
