@@ -1,0 +1,7 @@
+.DataErrorShow {
+    color: rgb(255, 255, 255);
+    text-align: center; /* Centers the text */
+    font-weight: bold;  /* Makes the text bold */
+    font-size: 1.5em;   /* Increases the font size */
+    text-shadow: 0 0 5px red, 0 0 10px red; /* Adds a red glow effect */
+}
