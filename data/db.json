@@ -17,13 +17,8 @@
     },
     {
       "id": "31",
-      "checked": false,
-      "task": "as"
-    },
-    {
-      "id": "311",
-      "checked": false,
-      "task": "asd"
+      "checked": true,
+      "task": "GTM"
     }
   ]
 }

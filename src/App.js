@@ -83,15 +83,21 @@ function App() {
     }
   
     const reqUrl = `${API_URL}/${id}`
-  const result = apiRequest(reqUrl, updateOptions)
+  const result = await apiRequest(reqUrl, updateOptions)
   if(result) setFetchError(result)
 
   };
 
   // Function to handle deleting an item from the list
-  const handleDelete = (id) => {
+  const handleDelete = async(id) => {
     const listItems = items.filter((item) => item.id !== id);  // Filter out the item with the specified id
     setItems(listItems);  // Update state with the filtered items array
+    const deleteOptions = {method: 'DELETE'}
+
+    const reqUrl = `${API_URL}/${id}`
+    const result = await apiRequest(reqUrl, deleteOptions)
+    if(result) setFetchError(result)
+  
     
   };
 
