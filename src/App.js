@@ -8,6 +8,7 @@ import AddItem from './Components/AddItem';
 import SearchItem from './Components/SearchItem';
 /* import Content from './Components/Content'; */
 import { useEffect } from 'react';
+import apiRequest from './Components/apiRequest';
 
 
 function App() {
@@ -45,22 +46,46 @@ function App() {
   }, []);
   
 
-  const addItem =(task) => {
+  const addItem = async(task) => {
     const id = items.length ? items[items.length - 1].id + 1 : 1;
     const addNewItem = {id, checked:false, task}
     const listItems = [...items, addNewItem]
     setItems(listItems); 
    
+    const postOptions = {
+      method: 'POST',
+      header: {
+        'Content-Type': 'application/json'
+      },
+      body:JSON.stringify(addNewItem)
+    }
+  
+
+  const result = apiRequest(API_URL, postOptions)
+  if(result) setFetchError(result)
+
   }
-
-
   // Function to handle toggling the checked status of an item
-  const handleCheck = (id) => {
+  const handleCheck = async(id) => {
     const listItems = items.map((item) =>
       item.id === id ? { ...item, checked: !item.checked } : item
     );
     setItems(listItems);  // Update state with the modified items array
     
+    const myItem =listItems.filter((item) => item.id===id)
+
+    const updateOptions = {
+      method: 'PATCH',
+      header: {
+        'Content-Type': 'application/json'
+      },
+      body:JSON.stringify({checked:myItem[0].checked})
+    }
+  
+    const reqUrl = `${API_URL}/${id}`
+  const result = apiRequest(reqUrl, updateOptions)
+  if(result) setFetchError(result)
+
   };
 
   // Function to handle deleting an item from the list
